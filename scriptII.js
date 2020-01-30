@@ -121,12 +121,13 @@ var arreglen = [1,-3,5,-4,56,6,9,-1,3,-7,66,1,2,72,4,-2,56,6,-7];
 
 function incrementsegundos(array){  
     var j = 1;
-    for(var i = 0; i < array.length; i++){
-        array[j] = array[j] + 1;     
-        console.log(array[i]);
+    var newarray = array;
+    for(var i = 0; i < newarray.length; i++){
+        newarray[j] = array[j] + 1;     
+        console.log(newarray[i]);
         j = j + 2;
     }
-    return array;
+    return newarray;
 }
 var arreglen = [1,-3,5,-4,56,6,9,-1,3,-7,66,1,2,72,4,-2,56,6,-7];
 console.log(incrementsegundos(arreglen));
