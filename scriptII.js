@@ -226,3 +226,5 @@ function negatron(array){
     var arreglon = [1,-3,5,-4,56,6,9,-1,3,-7,66,1,2,72,4,-2,56,6,-7];
     var value = 3
         console.log(multiply(arreglon, value));
+
+/*  desafios listos */
