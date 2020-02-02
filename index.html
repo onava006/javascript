@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>Recursive Fill</title>
+
+	<style type="text/css">
+	* {
+		margin:0px;
+		padding:0px;
+	}
+	body{
+		background-color:black;
+	}
+	.row div{
+		width:50px;
+		height:50px;
+		display:inline-block;
+	}
+	.white{
+		background-color:white;
+	}
+	.red{
+		background-color:red;
+	}
+	.yellow{
+		background-color:yellow;
+	}
+	.blue{
+		background-color:blue;
+	}
+	.green{
+		background-color:green;
+	}
+
+
+	</style>
+</head>
+<body>
+
+	<div id='container'></div>
+
+	<script type="text/javascript">
+// vamos a hacer la tarea de objetos 
+
+
+let professor = function(name,age){
+    this.name = name; 
+    this.age = age; 
+}
+
+
+let prof1 = new professor('Michael', 37);
+let prof2 = new professor('John', 30);
+let prof3 = new professor('David', 27); 
+
+var profesores = [prof1,prof2,prof3];
+
+for(profes in profesores){
+    console.log(profesores[profes]);
+}
+
+
+	</script>
+
+</body>
+</html>
