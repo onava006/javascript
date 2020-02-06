@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script src="p5/p5.js"></script>
+    <script src=test.js></script>
     <title>Document</title>
 </head>
 <body>
     <style>
+        body{
+        margin: 10px;
+        }
     div.row{
         width: 606px;
-        height: auto;
+        margin-bottom: -3px;
+
         }
     div.row div{
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;        
+        margin-bottom: 0px;
     }
     div.brick{
         background-color: blue;
-        border: 1px solid black;
         display: inline-block;
-        margin: 1px;
+        margin: 0px;
     }
     div.coin{
         
@@ -29,8 +36,11 @@
         background-repeat: no-repeat;
         background-size: 110px;
         display: inline-block;
-        margin: 1px;
-        border: 1px solid black;
+        margin: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: violet;
+
     }
     #pacman{
         background: url('images/pacman.gif');
@@ -40,58 +50,33 @@
         width: 40px;
         height: 40px;
         display: inline-block;
-        border: 1px solid black;
-        margin: 1px;
+        margin: 0px;
         position: absolute;
+        
     }
     div.empty{        
         display: inline-block;
-        margin: 1px;
-        border: 1px solid black;
-
-    }
-    
+        margin: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }   
     </style>
 
     <div id="world"></div>
-    <div id="pacman" style="top: 10px; left: 10px"></div>
-
+   <!-- <div id="pacman" style="top: 10px; left: 10px"></div>
+-->
 
 <script>
-    var world = [
-    [2,2,2,2,2,2,2,2,2,2,2],
-    [2,1,1,1,1,1,1,1,1,1,2],
-    [2,1,1,1,1,1,1,1,1,1,2],
-    [2,1,1,1,1,1,1,1,1,1,2],
-    [2,1,1,1,1,1,1,1,1,1,2],
-    [2,1,1,1,1,1,1,1,1,1,2],
-    [2,2,2,2,2,2,2,2,2,2,2],    
-    ]
+    function setup(){
+    
 
-    function displayworld(){
-    var output = "";
-    {
-        for(var i = 0; i < world.length; i++ ){
-            output += '\n\t<div class="row">';
-            for(var j = 0; j < world[i].length; j++){
-                if(world[i][j]==2){
-                    output += '\n\t<div class="brick"></div>';
-                }
-                if(world[i][j]==1){
-                    output += '\n\t<div class="coin"></div>';
-                }
-                if(world[i][j]==0){
-                    output += '\n\t<div class="empty"></div>';
-                }
-                
-            }
-            output  += '\n</div>';
-        }
-        document.getElementById('world').innerHTML = output;
-        console.log(output);
-    }  
-} 
-
+    
+}
+function display(){
+    draw(20,20,150,120);
+    print("esta mierda funciona?")
+    displayworld();
+    }
 </script>
 
 
