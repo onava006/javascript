@@ -1,17 +1,17 @@
-class phantom extends Personaje
+class phantom2 extends Personaje
 {
     constructor(x,y,bod){
-        super(x,y,);
-        this.xspeed = 2;
+        super(x,y,bod);
+        this.xspeed = 1;
         this.yspeed = 0;
         this.delta = 1;
         this.x = 400;
-        this.y = 350; 
-        this.bod = bod; 
+        this.y = 400; 
+        
     }   
 
     show(){
-        fill(Math.round(random(255)),0,0);
+        fill(0,Math.round(random(255)),0);
         ellipse(this.x ,this.y ,30);
     }
 
@@ -37,7 +37,7 @@ class phantom extends Personaje
 
         if (Math.round(this.x/scala) == this.x/scala && Math.round(this.y/scala) == this.y/scala){
             let min = 0;
-            let max = 3;
+            let max = 2;
             let random1 = Math.round(Math.random() * (+max - +min) + +min);
             let random2 = Math.round(Math.random() * (+max - +min) + +min);
 
@@ -52,7 +52,3 @@ class phantom extends Personaje
                          
     } 
 }
-
-
-
-

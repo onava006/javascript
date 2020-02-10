@@ -1,6 +1,6 @@
-function pacman(bod){
-    this.x = 100;
-    this.y = 100; 
+function pacman2(bod){
+    this.x = 700;
+    this.y = 650; 
     this.xspeed = 0;
     this.yspeed = 0;
     this.delta = 2; 
@@ -20,19 +20,19 @@ function pacman(bod){
 
     this.show = function(){ 
 
-        var posVidas = 0;
-        for (var i = 0; i <= vidas; i++){
+        var posVidas2 = 0;
+        for (var i = 0; i <= vidas2; i++){
             fill(255, 0, 0);
-            ellipse(50 ,100 + posVidas, 10);  
-            posVidas += 50;
+            ellipse(750 ,100 + posVidas2, 10);  
+            posVidas2 += 50;
         }
-
-        if(vidas < 0){
-            score = 0;
+        
+        if(vidas2 === 0){
+            score2 = 0;
         }
 
         if(this.xspeed > 0){
-            fill(255, 255, 0);
+            fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
             if (this.i >= 2 || this.i <= 1.8) {
@@ -43,7 +43,7 @@ function pacman(bod){
         }
 
         if(this.xspeed < 0){
-            fill(255, 255, 0);
+            fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
             if (this.i >= 2 || this.i <= 1.8) {
@@ -54,7 +54,7 @@ function pacman(bod){
         } 
         
         if(this.yspeed > 0){
-            fill(255, 255, 0);
+            fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
             if (this.i >= 2 || this.i <= 1.8) {
@@ -65,7 +65,7 @@ function pacman(bod){
         }
 
         if(this.yspeed < 0){
-            fill(255, 255, 0);
+            fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
             if (this.i >= 2 || this.i <= 1.8) {
@@ -75,7 +75,7 @@ function pacman(bod){
             ellipse(this.x -6 ,this.y - 3  , 5, 5);
         }
         else if (this.xspeed === 0 && this.yspeed < 1){
-            fill(255, 255, 0);
+            fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
             arc(this.x +2 ,this.y, 25, 25, 2*PI-QUARTER_PI, 2*PI+QUARTER_PI, PIE);        
@@ -85,9 +85,7 @@ function pacman(bod){
         textSize(20);
         fill(255);
         textFont('Courier New');
-        text('P1 Score:   '+score, 100, 60);
-
-        
+        text('P2 Score:   '+score, 500, 60);
     }
     
     this.interaction = function(){
@@ -104,7 +102,7 @@ function pacman(bod){
                 if(dist(this.x,this.y,worldcreated[i][j].x,worldcreated[i][j].y) < 20 && worldcreated[i][j] instanceof Coin ){
                      
                       if(worldcreated[i][j].instantiate == true){
-                        score += 10; 
+                        score2 += 10; 
                       }           
                     worldcreated[i][j].instantiate = false;
                 }
@@ -114,20 +112,11 @@ function pacman(bod){
                         score += 50; 
                       }           
                     worldcreated[i][j].instantiate = false;
-                }
-                
+                }   
             }     
-        }
-            var vidon = 4;
-            if(dist(this.x,this.y,fan1.x,fan1.y) < 5){
-              
-                setTimeout(quitarvida, 1000);
-            }
-            function quitarvida(){w
-                vidas --;
-            } 
         }
 
 
 
     }
+}
