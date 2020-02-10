@@ -4,12 +4,14 @@ function pacman2(bod){
     this.xspeed = 0;
     this.yspeed = 0;
     this.delta = 2; 
-    this.bod = bod;
     this.i = 1.85;
     this.xx = 0.2;
     this.speed = 0.04; 
 
     this.update = function(){
+        if (Math.round(this.x/scala) == this.x/scala && Math.round(this.y/scala) == this.y/scala){        
+            this.dir(press2X,press2Y); 
+        }
         this.x = (this.x + this.xspeed);
         this.y = (this.y + this.yspeed);     
     }
@@ -19,19 +21,29 @@ function pacman2(bod){
     }
 
     this.show = function(){ 
-
+        stroke(0);
         var posVidas2 = 0;
         for (var i = 0; i <= vidas2; i++){
-            fill(255, 0, 0);
-            ellipse(750 ,100 + posVidas2, 10);  
-            posVidas2 += 50;
+            stroke(255, 0, 0);
+            line(740, 100+posVidas2, 760, 100+posVidas2)  
+            posVidas2 += 1;
         }
-        
-        if(vidas2 === 0){
-            score2 = 0;
+
+        if(vidas2 > 1){
+            textSize(20);
+            fill(255);
+            textFont('Courier New');
+            text('P2 Score:   '+score2[1], 450, 60);
+            score2[0] = score2[1];
+        }else{
+            textSize(20);
+            fill(255);
+            textFont('Courier New');
+            text('Finish! P2 Score:   '+score2[0], 450, 60);
         }
 
         if(this.xspeed > 0){
+            stroke(0);
             fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
@@ -41,8 +53,8 @@ function pacman2(bod){
             arc(this.x +2 ,this.y, 25, 25, (this.i+=this.speed)*PI, (this.xx-=this.speed)*PI, PIE);        
             ellipse(this.x +2 ,this.y - 6 , 5, 5);
         }
-
         if(this.xspeed < 0){
+            stroke(0);
             fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
@@ -54,6 +66,7 @@ function pacman2(bod){
         } 
         
         if(this.yspeed > 0){
+            stroke(0);
             fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
@@ -65,6 +78,7 @@ function pacman2(bod){
         }
 
         if(this.yspeed < 0){
+            stroke(0);
             fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
@@ -75,6 +89,7 @@ function pacman2(bod){
             ellipse(this.x -6 ,this.y - 3  , 5, 5);
         }
         else if (this.xspeed === 0 && this.yspeed < 1){
+            stroke(0);
             fill(124, 10, 2);
             ellipse(this.x ,this.y, 30);        
             fill(0, 0, 0, 255); 
@@ -82,41 +97,62 @@ function pacman2(bod){
             ellipse(this.x +2 ,this.y - 6 , 5, 5);
         }
 
-        textSize(20);
-        fill(255);
-        textFont('Courier New');
-        text('P2 Score:   '+score, 500, 60);
     }
     
     this.interaction = function(){
         for(var i = 0; i < worldcreated.length; i++ ){      
 
             for(var j = 0; j < worldcreated[0].length; j++){  
-                if(dist(this.x,this.y,worldcreated[i][j].x,worldcreated[i][j].y) < 42 && worldcreated[i][j] instanceof Brick ){                
-                    tempX = -pressX;
-                    tempY = -pressY;
-                    this.dir(tempX,tempY);
-                    pressX = tempX;
-                    pressY = tempY;    
+                if(dist(this.x,this.y,worldcreated[i][j].x,worldcreated[i][j].y) < 50 && worldcreated[i][j] instanceof Brick ){                
+                    temp2X = -press2X;
+                    temp2Y = -press2Y;
+                    this.dir(temp2X,temp2Y);
+                    press2X = temp2X;
+                    press2Y = temp2Y;
+                    // let temp = this.xspeed;
+                    // this.xspeed = this.yspeed;
+                    // this.yspeed = temp;
                 }   
                 if(dist(this.x,this.y,worldcreated[i][j].x,worldcreated[i][j].y) < 20 && worldcreated[i][j] instanceof Coin ){
                      
                       if(worldcreated[i][j].instantiate == true){
-                        score2 += 10; 
+                        score2[1] += 10; 
                       }           
                     worldcreated[i][j].instantiate = false;
                 }
                
                 if(dist(this.x,this.y,worldcreated[i][j].x,worldcreated[i][j].y) < 20 && worldcreated[i][j] instanceof Fruit ){
                     if(worldcreated[i][j].instantiate == true){
-                        score += 50; 
+                        score2[1] += 50; 
                       }           
                     worldcreated[i][j].instantiate = false;
-                }   
+                }
+                
             }     
         }
-
-
-
-    }
+            if(dist(this.x,this.y,fan1.x,fan1.y) < 20){
+                vidas2-=3;
+            } 
+            if(dist(this.x,this.y,fan2.x,fan2.y) < 20){
+                vidas2-=2;
+            } 
+            if(dist(this.x,this.y,fan3.x,fan3.y) < 20){
+                vidas2-=2;
+            } 
+            if(dist(this.x,this.y,fan4.x,fan4.y) < 20){
+                vidas2-=3;
+            } 
+            if(dist(this.x,this.y,fan5.x,fan5.y) < 20){
+                vidas2-=3;
+            } 
+            if(dist(this.x,this.y,fan6.x,fan6.y) < 20){
+                vidas2-=2;
+            } 
+            if(dist(this.x,this.y,fan7.x,fan7.y) < 20){
+                vidas2-=2;
+            } 
+            if(dist(this.x,this.y,fan8.x,fan8.y) < 20){
+                vidas2-=3;
+            } 
+        }
 }

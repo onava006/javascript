@@ -29,8 +29,6 @@ class phantom2 extends Personaje
                     this.dir(phanX,phanY);
                     this.xspeed = phanX;
                     this.yspeed = phanY;
-                    console.log('x speed '+ this.xspeed);
-                    console.log('y speed '+ this.yspeed);
                 } 
             }   
         }

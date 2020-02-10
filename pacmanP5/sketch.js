@@ -6,16 +6,18 @@ var elements = [];
 var size = [];
 var enviroment;
 var worldcreated;
-var pressX = 0;
+var pressX = 1;
 var pressY = 0;
-var press2X = 0;
+var press2X = 1;
 var press2Y = 0;
-var tempX = 0;
-var tempY = 0;
-var score = 0;
-var score2 = 0;
-var vidas = 3;
-var vidas2 = 3;
+var tempX = pressX;
+var tempY = pressY;
+var temp2X = pressX;
+var temp2Y = pressY;
+var score = [0,0];
+var score2 = [0,0];
+var vidas = 150;
+var vidas2 = 150;
 
 
 function setup() {
@@ -74,49 +76,37 @@ function draw() {
     
     fan1.update();
     fan1.show();
-    // fan2.update();
-    // fan2.show();   
-    // fan3.update();
-    // fan3.show();
-    // fan4.update();
-    // fan4.show();
+    fan2.update();
+    fan2.show();   
+    fan3.update();
+    fan3.show();
+    fan4.update();
+    fan4.show();
+    fan5.update();
+    fan5.show();
+    fan6.update();
+    fan6.show();   
+    fan7.update();
+    fan7.show();
+    fan8.update();
+    fan8.show();
 
-    // fan5.update();
-    // fan5.show();
-    // fan6.update();
-    // fan6.show();   
-    // fan7.update();
-    // fan7.show();
-    // fan8.update();
-    // fan8.show();
-
-    if (Math.round(pac.x/scala) == pac.x/scala && Math.round(pac.y/scala) == pac.y/scala){        
-        pac.dir(pressX,pressY); 
-    }
-    if (Math.round(pac2.x/scala) == pac2.x/scala && Math.round(pac2.y/scala) == pac2.y/scala){        
-        pac2.dir(press2X,press2Y); 
-    }
-
-    if(tempX == 0 && tempY == 0){
-        tempX = pressX;
-        tempY = pressY;  
-    }
     pac.interaction();
     pac2.interaction();
 
     fan1.movement();    
-    // fan2.movement();   
-    // fan3.movement();   
-    // fan4.movement();
-    // fan5.movement();    
-    // fan6.movement();   
-    // fan7.movement();   
-    // fan8.movement();      
+    fan2.movement();   
+    fan3.movement();   
+    fan4.movement();
+    fan5.movement();    
+    fan6.movement();   
+    fan7.movement();   
+    fan8.movement();      
 }
 
 function keyPressed(){   
 
-    if(keyCode === UP_ARROW){
+    if(keyCode === UP_ARROW ){
         pressX = 0;
         pressY = -1; 
     }
