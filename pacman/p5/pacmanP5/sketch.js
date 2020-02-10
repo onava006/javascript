@@ -17,15 +17,12 @@ var score2 = 0;
 var vidas = 3;
 var vidas2 = 3;
 
-function preload(){
-bod = loadImage("images/facman.gif");    
-}
 
 function setup() {
     elements = ['Brick','Coin','Void','Fruit'];
     // angleMode(DEGREES);
-    pac = new pacman(bod);
-    pac2 = new pacman2(bod);
+    pac = new pacman();
+    pac2 = new pacman2();
     var enviroment = [
         [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
         [2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
