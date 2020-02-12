@@ -1,0 +1,10 @@
+ 
+ 
+ 
+ 
+ 'aeiou'            
+ 'bcdfg'
+ 'hjklm'
+ 'npqrstvwxyz'
+
+  
